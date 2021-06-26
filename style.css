@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+* {
+  font-family: 'Architects Daughter', cursive;
+  font-weight: bolder;
+}
+
+body{
+  background-image: url(images/plage2.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+h1.game-title, h3.slogan {
+  margin : 20px;
+}

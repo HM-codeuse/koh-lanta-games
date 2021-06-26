@@ -11,8 +11,21 @@ var registrationNames = () => {
 }
 newGameBtn.addEventListener('click', registrationNames)
 
+// 2. Eclairage du joueur actif 
+const yellowTotem = document.getElementById('yellow-totem');
+const redTotem = document.getElementById('red-totem');
+function enlightened(){
+  if(activePlayer === 1){
+    redTotem.style.opacity = '0.6';
+    yellowTotem.style.opacity = '1';
+  } else {
+    yellowTotem.style.opacity = '0.6'; 
+    redTotem.style.opacity = '1';
+  }
+}
 
-// 2. Initialiser le jeu 
+// 3. Initialiser le jeu 
+
 function init(){
   player1RoundPoints = 0; 
   player1GlobalPoints = 0; 
@@ -23,11 +36,12 @@ function init(){
   document.getElementById('player1-global-points').textContent = player1GlobalPoints;
   document.getElementById('player2-global-points').textContent = player2GlobalPoints;
   activePlayer = 1; 
+  enlightened();
 }
 
 init();
 
-// 3. Lancer du dé et ajout des points du tour;
+// 4. Lancer du dé et ajout des points du tour;
 var btnRollDice = document.getElementById('roll-dice');
 var dice = document.getElementById('dice');
 
@@ -40,12 +54,13 @@ function getAleatoryNumber(number) {
   } else if (number === 1 && activePlayer === 1){
     player1RoundPoints = 0
     activePlayer+=1
-    console.log(activePlayer)
+    enlightened();
   } else if(number !== 1 && activePlayer === 2){
     player2RoundPoints +=number;
   } else {
     player2RoundPoints = 0;
     activePlayer -= 1;
+    enlightened();
   }
 
   document.getElementById('player1-round-points').textContent = player1RoundPoints;
@@ -54,19 +69,35 @@ function getAleatoryNumber(number) {
 }
 btnRollDice.addEventListener('click', getAleatoryNumber);
 
-//4. Sauvegarde des points du tour 
+//5. Sauvegarde des points du tour dans le score global, arrêt du jeu, déclaration du vainqueur et remise à zéro des compteurs 
 var btnHold = document.getElementById('hold');
 function getRoundPoints (){
   if(activePlayer === 1){
     player1GlobalPoints += player1RoundPoints;
     player1RoundPoints = 0;
+    document.getElementById('player1-round-points').textContent = player1RoundPoints;
     activePlayer += 1;
+    enlightened();
+      if(player1GlobalPoints > 100 && player2GlobalPoints < 100) {
+      alert('L\'équipe jaune remporte l\'aventure et cette sentence est irrévocable!!');
+      init(); 
+    }
+    
   } else {
     player2GlobalPoints += player2RoundPoints;
     player2RoundPoints = 0;
+    document.getElementById('player2-round-points').textContent = player2RoundPoints;
     activePlayer -= 1;
+    enlightened();
+      if(player2GlobalPoints >= 100 && player1GlobalPoints < 100){
+      alert ('L\'équipe rouge remporte l\'aventure et cette sentence est irrévocable!!');
+      init(); 
+    }
   }
+
   document.getElementById('player1-global-points').textContent = player1GlobalPoints;
   document.getElementById('player2-global-points').textContent = player2GlobalPoints;
 }
 btnHold.addEventListener('click', getRoundPoints)
+
+
