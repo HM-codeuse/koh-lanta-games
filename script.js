@@ -24,9 +24,9 @@ function enlightened(){
   }
 }
 
-// 3. Initialiser le jeu 
+// 3. Préparation du jeu (mise à zéro)
 
-function init(){
+function start(){
   player1RoundPoints = 0; 
   player1GlobalPoints = 0; 
   player2RoundPoints = 0; 
@@ -39,7 +39,7 @@ function init(){
   enlightened();
 }
 
-init();
+start();
 
 // 4. Lancer du dé et ajout des points du tour;
 var btnRollDice = document.getElementById('roll-dice');
@@ -80,7 +80,7 @@ function getRoundPoints (){
     enlightened();
       if(player1GlobalPoints > 100 && player2GlobalPoints < 100) {
       alert('L\'équipe jaune remporte l\'aventure et cette sentence est irrévocable!!');
-      init(); 
+      start(); 
     }
     
   } else {
@@ -91,7 +91,7 @@ function getRoundPoints (){
     enlightened();
       if(player2GlobalPoints >= 100 && player1GlobalPoints < 100){
       alert ('L\'équipe rouge remporte l\'aventure et cette sentence est irrévocable!!');
-      init(); 
+      start(); 
     }
   }
 
