@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JEU JS</title>
+  <title>KOH-LANTA Games</title>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,116 +13,142 @@
 </head>
 
 <body class="container">
- 
+ <!-- Header -->
   <header>
-    <div class="header container-fluid text-center">
-      <h1 class="game-title">Koh-lanta All Stars</h1>
+    <div class="header container-fluid text-center ">
+      <h1 class="game-title">KOH-LANTA ALL STARS</h1>
       <h3 class="slogan">Qui sera le héros des Héros?</h3>
     </div>
   </header>
+<!-- Fin Header -->
 
+<!-- Main -->
   <main class="container-fluid">
-    <div class="row justify-content-center"> 
-      <button id="new-game" class="btn btn-dark btn-lg" type="" data-bs-toggle="modal" data-bs-target="#SelectionOfTeam">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-      </svg>
+    <!-- Boutons préparation jeu -->
+    <div id="games-btn" class="row justify-content-center"> 
+      <button id="new-game" class="btn btn-light" type="button" data-bs-toggle="modal" data-bs-target="#SelectionOfTeam">
       <p>Nouvelle partie</p>
       </button>
-      <!-- Modal à insérer au clic sur nouvelle partie 
+      <button id="rules" class="btn btn-light" type="button" data-bs-toggle="modal" data-bs-target="#gamesRules">
+        <p>Règles du jeu</p>
+      </button>
+      
+      <!-- Modal Sélection équipes -->
       <div class="modal fade" id="SelectionOfTeam" tabindex="-1" aria-labelledby="SelectionOfTeamLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="SelectionOfTeamLabel">Choisissez la couleur de votre équipe</h4>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             <h2>Choisissez le nom de vos équipes</h2>
             </div>
             <div class="modal-body">
-              <input type="checkbox" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
-              <label class="btn btn-outline-danger" for="btn-check-2-outlined">Checked</label><br>
-            </div> -->
-            <!-- <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <div class="inputPlayers" >
+                <div class="inputPlayer" >
+                  <label class="player1" for="player1" >Equipe jaune</label>
+                  <input type="text" id="player1Input" name="player1Input" placeholder="Votre nom d'équipe"  >
+                </div>
+              <!-- Input Player2 -->
+                <div class="inputPlayer" >
+                    <label class="player2" for="player2" >Equipe rouge</label>
+                    <input type="text" id="player2Input" name="player2Input" placeholder="Votre nom d'équipe" >
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="close">Que l'aventure commence!</button>
             </div>
           </div>
         </div>
-      </div> -->
-    </div>
-       
-    <div class="row justify-content-center text-center" id="ground">
-      <div id="player1" class="col-5 justify-content-center">
-        <img src="./images/équipe-jaune.jpg" class="img-fluid rounded-float-end" id="yellow-totem">
-        <h3 id="player1-name">  </h3>
-        <div class="round-points">
-          <h4>Score actuel: </h4>
-          <p id="player1-round-points"></p>
+      </div>
+      </div>
+      <!-- Fin Modal Sélection équipes -->
+
+      <!-- Modal Règles du jeu -->
+      <div class="modal fade" id="gamesRules" tabindex="-1" aria-labelledby="gamesRulesLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+             <h2 class="justify-content-center">Règles du jeu </h2>
+            </div>
+            <div class="modal-body">
+              <h4> But du jeu: La première équipe qui atteint le score de 100 points gagne la partie.</h4>
+              <p>
+                <ul> 
+                  <li>Chaque équipe a un score temporaire et un score total.</li>
+                  <li>Une première équipe lance le dé. Si le score obtenu est différent de 1(un) alors l'équipe peut relancer le dès <b>ou</b> décider de sauvegarder les points gagnés.</li>
+                  <li>Si l'équipe choisit de sauvegarder ses points alors le tour passe à l'autre équipe.</li>
+               </ul>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="close">Soyez braves car à la fin il n'en restera qu'un!!!</button>
+            </div>
+          </div>
         </div>
-        <div class="global-points">
-          <h4>Score global: </h4>
-          <p id="player1-global-points"></p>
+      </div>
+      <!-- Fin Modal Règles du jeu -->
+    </div>
+    <!-- Fin Boutons préparation jeu -->
+
+    <!-- Espace de jeu  -->
+    <div class="justify-content-center text-center" id="ground">
+      <div id="player1" class="justify-content-center">
+        <img src="./images/équipe-jaune.jpg" alt="" class="img-fluid" id="yellow-totem">
+        <div class="player1-account">
+          <h3 id="player1-name">  </h3>
+          <div class="round-points">
+            <h6>Score actuel: </h6>
+            <p id="player1-round-points"></p>
+          </div>
+          <div class="global-points">
+            <h6>Score global: </h6>
+            <p id="player1-global-points"></p>
+          </div>
         </div>
       </div>
 
-      <!-- <div id="game-controls" class=" col-2 justify-content-center">
-        <div id="dice">
-          <img src="./images/1.gif" alt="" id="imgDice" class="img-fluid" >
-        </div>
-        <button id="roll-dice" class="btn btn-dark btn-lg m-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-            <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
-          </svg>
-          <p>Lancer le dé</p>
-        </button>
-        <button id="hold" class="btn btn-dark btn-lg ">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-down" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z"/>
-            <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-          </svg>
-          <p>Sauvegarder les points gagnés</p>
-        </button>
-      </div> -->
-      <div id="dice" class="col-2 justify-content-center">
+      <div id="dice" class="justify-content-center">
         <img src="./images/1.gif" alt="" id="imgDice" class="img-fluid" >
       </div>
-      <div id="player2" class="col-5 justify-content-center">
-        <img src="./images/équipe-rouge.jpg" class="img-fluid" id="red-totem">
-        <h3 id="player2-name"> </h3>
-        <div class="round-points">
-          <h4>Score actuel: </h4>
-          <p id="player2-round-points"> </p>
-        </div>
-        <div class="global-points">
-          <h4>Score global: </h4>
-          <p id="player2-global-points"> </p>
+      
+      <div id="player2" class="justify-content-center">
+        <img src="./images/équipe-rouge.jpg" alt="" class="img-fluid" id="red-totem">
+        <div class="player1-account">
+          <h3 id="player2-name"> </h3>
+          <div class="round-points">
+            <h6>Score actuel: </h6>
+            <p id="player2-round-points"> </p>
+          </div>
+          <div class="global-points">
+            <h6>Score global: </h6>
+            <p id="player2-global-points"> </p>
+          </div>
         </div>
       </div>
     </div>
+    <!-- Fin Espace de jeu  -->
 
+    <!-- Boutons de jeu -->
     <div id="game-controls" class="row justify-content-center">
-        
-        <button id="roll-dice" class="btn btn-dark btn-lg m-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+      <button id="roll-dice" class="btn btn-light btn-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
             <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
-          </svg>
-          <p>Lancer le dé</p>
-        </button>
-        <button id="hold" class="btn btn-dark btn-lg" type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-down" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z"/>
-            <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-          </svg>
-          <p>Sauvegarder les points gagnés</p>
-        </button>
-      </div>
-    <div class="row justify-content-center" id="game-results">
-      <p>
-      </p>
+        </svg>
+        <p>Lancer le dé</p>
+      </button>
+      <button id="hold" class="btn btn-light btn-lg" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-down" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z"/>
+              <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+            </svg>
+            <p>Sauvegarder</p>
+      </button>
+        
     </div>
+    <!-- Fin Boutons de jeu -->
+
   </main>
+<!-- Fin Main -->
+
 
   <footer>
     <!-- bande avec nom, prénom, année, copyright -->

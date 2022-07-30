@@ -1,19 +1,28 @@
 //
 
 
-// 1.Nouvelle partie : choix du nom des équipes
+// 1.Nouvelle partie : choix du nom des équipes et règles du jeu 
 var newGameBtn = document.getElementById('new-game');
+// function myRegistration(event){
+//   document.getElementById('player1Input').innerHTML = event.data;
+// }
 var registrationNames = () => {
-  var player1Name = prompt('Ecris le nom de l\'équipe jaune');
-  var player2Name = prompt('Ecris le nom de l\'équipe rouge');
+  $('#SelectionOfTeam').modal('show');
+  var player1Name = document.getElementById('player1Input').value;
+  var player2Name = document.getElementById('player2Input').value;
   document.getElementById('player1-name').textContent = player1Name; 
   document.getElementById('player2-name').textContent = player2Name;
 }
 newGameBtn.addEventListener('click', registrationNames)
 
+var rulesBtn = document.getElementById('rules');
+rulesBtn.addEventListener('click', ()=>{
+  $('#gamesRules').modal('show');
+})
+
 // 2. Eclairage du joueur actif 
-const yellowTotem = document.getElementById('yellow-totem');
-const redTotem = document.getElementById('red-totem');
+const yellowTotem = document.getElementById('player1');
+const redTotem = document.getElementById('player2');
 function enlightened(){
   if(activePlayer === 1){
     redTotem.style.opacity = '0.6';
@@ -78,7 +87,7 @@ function getRoundPoints (){
     document.getElementById('player1-round-points').textContent = player1RoundPoints;
     activePlayer += 1;
     enlightened();
-      if(player1GlobalPoints > 100 && player2GlobalPoints < 100) {
+      if(player1GlobalPoints >= 100 && player2GlobalPoints < 100) {
       alert('L\'équipe jaune remporte l\'aventure et cette sentence est irrévocable!!');
       start(); 
     }
