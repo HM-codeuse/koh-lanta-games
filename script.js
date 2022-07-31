@@ -1,11 +1,6 @@
-//
-
 
 // 1.Nouvelle partie : choix du nom des équipes et règles du jeu 
 var newGameBtn = document.getElementById('new-game');
-// function myRegistration(event){
-//   document.getElementById('player1Input').innerHTML = event.data;
-// }
 var registrationNames = () => {
   $('#SelectionOfTeam').modal('show');
   var player1Name = document.getElementById('player1Input').value;
