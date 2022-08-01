@@ -5,6 +5,10 @@
 }
 
 /* Fond utilisé */
+html{
+  margin: 0;
+}
+
 body{
   background-image: url(images/plage2.jpg);
   background-repeat: no-repeat;
@@ -33,9 +37,14 @@ p{
 }
 
 /* disposition sur la page  */
-main {
+body {
 display: flex;
 flex-direction: column;
+}
+
+.container-fluid {
+margin: 0;
+padding: 0;
 }
 
 .player1-account, .player2-account{
@@ -47,7 +56,14 @@ flex-direction: column;
   background-color: white;
   display: flex;
   flex-direction: column;
+}
 
+footer{
+  background-color: black;
+  color: white;
+  text-align: center;
+  position: static;
+  bottom: 0px;
 }
 
 /* mise en forme des boutons  */
@@ -66,6 +82,7 @@ flex-direction: column;
 
 
 /* gestion du responsive  */
+/* Grands écrans  */
 @media screen and (min-width: 500px) {
   h1 {
     font-size:2.5rem;
@@ -76,26 +93,40 @@ flex-direction: column;
     flex-direction: row;
   }
 
-  #dice {
-    width: 60vw;
+  img {
+    width: 100vw;
+  }
+
+  #imgDice {
+    width: 15vw;
+  }
+
+  footer {
+    position: relative;
   }
 }
-
+ 
+/* Petits écrans  */
+@media screen and (max-width: 500px) {
+    
   
-  @media screen and (max-width: 500px) {
     main {
       display: flex;
       flex-direction: row;
     }
     
     h1, h3 {
-      font-size:1rem;
+      font-size:2rem;
       font-weight: bolder;
       margin: 0%;
       padding: 0%;
     }
 
-    h3.slogan {
+    h3{
+      font-size: 1.5rem;
+    }
+
+    p.footer {
       display: none;
     }
 
@@ -109,8 +140,8 @@ flex-direction: column;
       display: flex;
     }
 
-    #dice {
-    width: 40vw;
+    #imgDice {
+    width: 20vw;
     margin: 0%;
     }
 
@@ -137,4 +168,14 @@ flex-direction: column;
       padding: 0%;
     }
 
+  }
+
+  @media screen and (min-width: 500px) and (max-width : 1024px) {
+    #imgDice {
+      height: 100%;
+    }
+    #dice {
+      width: 50vw;
+      display: flex;
+    }
   }

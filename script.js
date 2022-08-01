@@ -8,6 +8,7 @@ var registrationNames = () => {
   document.getElementById('player1-name').textContent = player1Name; 
   document.getElementById('player2-name').textContent = player2Name;
 }
+
 newGameBtn.addEventListener('click', registrationNames)
 
 var rulesBtn = document.getElementById('rules');
