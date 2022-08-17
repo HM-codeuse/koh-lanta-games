@@ -27,13 +27,15 @@ img {
 }
 
 /* texte */
-h1{
-  font-size: 4rem;
-  margin-top: 20px;
+h1, h3 {
+  font-size:2rem;
+  font-weight: bolder;
+  margin: 0%;
+  padding: 0%;
 }
 
-p{
-  margin: 0px;
+h3{
+  font-size: 1.5rem;
 }
 
 /* disposition sur la page  */
@@ -50,12 +52,14 @@ padding: 0;
 .player1-account, .player2-account{
    margin: 10px;
    padding: 10px;
+   display: flex;flex-direction: column;
 }
 
 #ground {
   background-color: white;
   display: flex;
   flex-direction: column;
+  opacity: 0.95;
 }
 
 footer{
@@ -75,17 +79,16 @@ footer{
   justify-content: center;
 }
 
-#game-controls{
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
-
 /* gestion du responsive  */
 /* Grands écrans  */
 @media screen and (min-width: 500px) {
-  h1 {
-    font-size:2.5rem;
+  h1{
+    font-size: 4rem;
+    margin-top: 20px;
+  }
+  
+  p{
+    margin: 0px;
   }
   
   #ground {
@@ -94,11 +97,11 @@ footer{
   }
 
   img {
-    width: 100vw;
+    height: 20vh;
   }
 
   #imgDice {
-    width: 15vw;
+   width: 30vw;
   }
 
   footer {
@@ -115,17 +118,6 @@ footer{
       flex-direction: row;
     }
     
-    h1, h3 {
-      font-size:2rem;
-      font-weight: bolder;
-      margin: 0%;
-      padding: 0%;
-    }
-
-    h3{
-      font-size: 1.5rem;
-    }
-
     p.footer {
       display: none;
     }
@@ -137,7 +129,6 @@ footer{
     .player1-account, .player2-account {
       padding: 0%;
       margin: 0%;
-      display: flex;
     }
 
     #imgDice {
@@ -157,7 +148,6 @@ footer{
     #game-controls, #games-btn {
       display: flex;
       flex-direction: column;
-      align-items: space-around;
     }
 
   
